@@ -1,10 +1,19 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
+
+import ContactUs from "../pages/Contact-us";
+import Home from "../pages/Home";
+import Review from "../pages/Review";
 
 const App = () => {
   return (
-    <div>
-      <h1>Food E-Commerce </h1>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/review" element={<Review />} />
+      </Routes>
+    </>
   );
 };
 

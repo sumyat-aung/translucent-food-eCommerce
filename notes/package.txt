@@ -1,0 +1,6 @@
+Package / Library that has been install 
+
+- React 
+- TailwindCSS
+- styled-components
+- React router dom
