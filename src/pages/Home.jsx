@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import Nav from "../components/header/Nav";
-import spoon from "../assests/home/spoon.svg";
-import food from "../assests/home/food.png";
+import spoon from "../assests/home & contact/spoon.svg";
+import food from "../assests/home & contact/food.png";
 
 const Home = () => {
   return (
@@ -30,7 +30,7 @@ const Home = () => {
           </p>
           <Link
             to={"/menu"}
-            className="px-10 text-2xl mt-8 inline-block py-2 bg-yel text-gray-900 w-60xxcv hover:bg-yellow-200"
+            className="px-10 text-2xl mt-8 inline-block py-2 bg-yel text-gray-900 w-60 hover:bg-yellow-200"
           >
             Order Now ⇀
           </Link>
@@ -60,8 +60,3 @@ const LandingStyle = styled.div`
     font-family: "Open Sans", sans-serif;
   }
 `;
-
-// Translucent is the perfect place to enjoy fresh and healthy food. Our talented chef only uses the best ingredients
-// to create delicious dishes that are sure to please any appetite. Plus, we offer both online services and dinning
-// room options so you can enjoy our food in the way that best suits your needs. Whether you're looking for a
-// quick bite or a leisurely meal, Translucent is the perfect choice for anyone who wants great tasting food without having to compromise on quality or healthfulness.
