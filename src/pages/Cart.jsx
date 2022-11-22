@@ -2,13 +2,13 @@ import React from "react";
 
 import Nav from "../components/header/Nav";
 
-const Home = () => {
+const Cart = () => {
   return (
-    <div className="bg-bla h-[100vh]">
+    <>
       <Nav />
-      Home
-    </div>
+      Cart
+    </>
   );
 };
 
-export default Home;
+export default Cart;

@@ -1,7 +1,14 @@
 import React from "react";
 
+import Nav from "../components/header/Nav";
+
 const Review = () => {
-  return <div>Review</div>;
+  return (
+    <>
+      <Nav />
+      Review
+    </>
+  );
 };
 
 export default Review;

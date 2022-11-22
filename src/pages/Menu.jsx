@@ -2,13 +2,13 @@ import React from "react";
 
 import Nav from "../components/header/Nav";
 
-const Home = () => {
+const Menu = () => {
   return (
-    <div className="bg-bla h-[100vh]">
+    <>
       <Nav />
-      Home
-    </div>
+      Menu
+    </>
   );
 };
 
-export default Home;
+export default Menu;

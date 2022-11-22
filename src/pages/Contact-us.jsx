@@ -1,7 +1,14 @@
 import React from "react";
 
+import Nav from "../components/header/Nav";
+
 const ContactUs = () => {
-  return <div>Contact-us</div>;
+  return (
+    <>
+      <Nav />
+      Contact-us
+    </>
+  );
 };
 
 export default ContactUs;
