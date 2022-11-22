@@ -19,11 +19,11 @@ body {
 
 body::-webkit-scrollbar {
   width: 6px;
-  background-color: white;
+  background-color: #0c0b08;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #0c1933;
+  background-color: #dcca87;
   border-radius: 60px;
 }
 

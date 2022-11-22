@@ -17,9 +17,9 @@ const Nav = () => {
 
       <Link
         to={"/menu"}
-        className="text-3xl font-mono uppercase logo flex items-center"
+        className="text-xl font-mono uppercase logo flex items-center sm:text-3xl"
       >
-        Translucent{" "}
+        Translucent
         <i className="fa-solid fa-pizza-slice text-xl text-yel ml-4"></i>
       </Link>
 
@@ -76,7 +76,7 @@ const Nav = () => {
         ></i>
 
         {click && (
-          <div className="absolute top-0 left-0 w-[100vw] h-[100vh] flex flex-col justify-center items-center bg-bla small-screen">
+          <div className="fixed top-0 left-0 w-[100vw] h-[100vh] flex flex-col justify-center items-center bg-bla small-screen ">
             <i
               className="fa-solid fa-bars-staggered text-xl absolute top-6 right-11 cursor-pointer"
               onClick={showMenu}
