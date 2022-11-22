@@ -65,4 +65,8 @@ const LandingStyle = styled.div`
   p {
     font-family: "Open Sans", sans-serif;
   }
+
+  @media all and (min-width: 1700px) {
+    padding-left: 60px;
+  }
 `;
