@@ -10,6 +10,7 @@ const Home = () => {
   return (
     <div className="bg-bla h-auto lg:h-[100vh]">
       <Nav />
+
       <LandingStyle className="h-[88%] flex justify-between flex-col lg:flex-row lg:mt-2 mt-8">
         <div className="lg:w-1/2 w-[100%] h-full flex justify-center flex-col px-5 lg:pl-16 lg:pr-8 ">
           <p className="text-gray-50 text-xl tracking-widest">
@@ -35,6 +36,7 @@ const Home = () => {
             Order Now ⇀
           </Link>
         </div>
+
         <div className="w-[100%] lg:w-[35%] xl:w-1/2 h-full flex justify-center items-center lg:pr-20 xl:pr-10 lg:mt-0 mt-20 mb-10">
           <img
             src={food}
@@ -48,6 +50,10 @@ const Home = () => {
 };
 
 export default Home;
+
+// --------------------- //
+
+// styled components
 
 const LandingStyle = styled.div`
   h1,
