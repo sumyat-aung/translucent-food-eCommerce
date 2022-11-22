@@ -16,7 +16,7 @@ const Nav = () => {
       {/* ---------- */}
 
       <Link
-        to={"/menu"}
+        to={"/"}
         className="text-xl font-mono uppercase logo flex items-center sm:text-3xl"
       >
         Translucent
