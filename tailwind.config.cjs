@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       colors: {
         bla: "#0C0B08",
+        card: " #12100d",
         yel: "#DCCA87",
       },
     },
