@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import Nav from "../components/header/Nav";
-import spoon from "../assests/home & contact/spoon.svg";
-import food from "../assests/home & contact/food.png";
+import spoon from "../assests/spoon.svg";
+import food from "../assests/food.png";
 
 const Home = () => {
   return (

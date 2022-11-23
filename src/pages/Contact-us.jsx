@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import Nav from "../components/header/Nav";
-import spoon from "../assests/home & contact/spoon.svg";
-import drink from "../assests/home & contact/drink.png";
+import spoon from "../assests/spoon.svg";
+import drink from "../assests/drink.png";
 
 const ContactUs = () => {
   return (
