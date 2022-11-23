@@ -4,4 +4,4 @@ Package / Library that has been install
 - TailwindCSS
 - styled-components
 - React router dom
-- splider 
+

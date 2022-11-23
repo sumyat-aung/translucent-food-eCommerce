@@ -5,14 +5,31 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   let [click, setClick] = useState(false);
 
-  // showMenu bar event
-  const showMenu = () => {
-    setClick(!click);
-  };
+  // --------------------- //
+
+  // disable the window scroll when click is true
+
+  function disableScroll() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    window.onscroll = function () {
+      window.scrollTo(scrollLeft, scrollTop);
+    };
+  }
+
+  function enableScroll() {
+    window.onscroll = function () {};
+  }
+
+  click && disableScroll();
+  click === false && enableScroll();
+
+  // --------------------- //
 
   // jsx
+
   return (
-    <NavStyle className="flex justify-between items-center bg-bla text-gray-50 py-5 xl:px-20 px-11 ">
+    <NavStyle className="flex justify-between items-center bg-bla text-gray-50 py-5 xl:px-20 lg:px-11 px-5">
       {/* ---------- */}
 
       <Link
@@ -72,14 +89,14 @@ const Nav = () => {
       <div className=" lg:hidden flex">
         <i
           className="fa-solid fa-bars-staggered text-xl cursor-pointer"
-          onClick={showMenu}
+          onClick={() => setClick(true)}
         ></i>
 
         {click && (
           <div className="fixed top-0 left-0 w-[100vw] h-[100vh] flex flex-col justify-center items-center bg-bla small-screen ">
             <i
-              className="fa-solid fa-bars-staggered text-xl absolute top-6 right-11 cursor-pointer"
-              onClick={showMenu}
+              className="fa-solid fa-xmark text-xl absolute top-6 right-11 cursor-pointer"
+              onClick={() => setClick(false)}
             ></i>
             <Link
               to={"/"}

@@ -1,6 +1,4 @@
 import React from "react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
 import styled from "styled-components";
 
 import Nav from "../components/header/Nav";
@@ -10,7 +8,7 @@ const Review = () => {
   return (
     <div className="bg-bla">
       <Nav />
-      <div className="flex justify-center items-center mx-20 flex-wrap pb-20 ">
+      <div className="flex justify-center items-center mx-20 flex-wrap pb-20 sm:mt-0 -mt-10">
         {data.map((d) => {
           return (
             <ReviewStyle
