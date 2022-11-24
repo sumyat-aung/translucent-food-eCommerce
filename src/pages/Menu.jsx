@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 
 import Nav from "../components/header/Nav";
 import { context } from "../context/context";
@@ -12,7 +13,11 @@ const Menu = () => {
     <>
       <Nav />
 
-      {ProductsLoading && <h1 className="text-3xl text-yel">Loading</h1>}
+      {ProductsLoading && (
+        <div className="flex justify-center items-center h-[80vh]">
+          <ClimbingBoxLoader color="#DCCA87" size={20} />
+        </div>
+      )}
 
       <div className="flex justify-center items-center flex-wrap my-14">
         {products.map((e) => {
