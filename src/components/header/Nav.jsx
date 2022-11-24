@@ -68,7 +68,7 @@ const Nav = () => {
         >
           Cart
           <i className="fa-solid fa-cart-shopping ml-2 text-yel"></i>
-          {cart.line_items.length > 0 && (
+          {cart.line_items && (
             <div className="badge">{cart.line_items.length}</div>
           )}
         </Link>

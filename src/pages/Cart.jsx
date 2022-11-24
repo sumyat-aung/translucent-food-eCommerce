@@ -15,7 +15,7 @@ const Cart = () => {
     <>
       <Nav />
 
-      {line_items.length <= 0 ? (
+      {line_items && line_items.length <= 0 ? (
         <EmptyCard />
       ) : (
         <div className="flex justify-center items-center flex-wrap my-14">
