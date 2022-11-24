@@ -7,6 +7,7 @@ import { context } from "../context/context";
 import CartButtons from "../components/cart/CartButtons";
 
 const Cart = () => {
+  // getting data from context
   const contextConsumer = useContext(context);
   const { cart, EmptyCartHandle } = contextConsumer;
 

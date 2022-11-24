@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { context } from "../../context/context";
 
 const FoodInCart = ({ data }) => {
+  // getting data from context
   let contextConsumer = useContext(context);
   let { RemoveFood, UpdateCartQuantity } = contextConsumer;
 

@@ -9,9 +9,11 @@ import Food from "../components/menu/Food";
 import AddToCartAlert from "../components/alert/AddToCartAlert";
 
 const Menu = () => {
+  // getting data from context
   const contextConsumer = useContext(context);
   const { products, AddToCart, ProductsLoading } = contextConsumer;
 
+  // added to cart modal state
   const [Modal, setModal] = useState(false);
 
   return (

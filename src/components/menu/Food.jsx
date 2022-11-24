@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Food = ({ data, AddToCart, setModal }) => {
-  // add to carf handling
-
+  // add to card handling
   const AddToCartHandle = (id) => {
     AddToCart(id);
     setModal(true);
