@@ -12,6 +12,7 @@ module.exports = {
         bla: "#0C0B08",
         card: " #12100d",
         yel: "#DCCA87",
+        hover: "#dcca8707",
       },
     },
   },

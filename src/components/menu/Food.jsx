@@ -1,13 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const Food = ({ data }) => {
+const Food = ({ data, AddToCart }) => {
+  const AddToCartHandle = (id) => {
+    AddToCart(id);
+  };
+
   return (
     <CardStyling className="max-w-sm rounded overflow-hidden shadow bg-card m-[25px]">
       <img
         className="w-full h-[300px] object-cover"
         src={data.image.url}
-        alt="Sunset in the mountains"
+        alt={data.name}
       />
       <div className="px-6 py-4 flex justify-between">
         <h1 className="font-bold text-yel text-3xl">{data.name}</h1>
@@ -17,7 +21,10 @@ const Food = ({ data }) => {
         className="text-gray-300 text-base px-6 pt-2"
         dangerouslySetInnerHTML={{ __html: data.description }}
       ></p>
-      <i className="fa-solid fa-cart-shopping  text-yel text-lg float-right pb-10 px-6 mt-5 cursor-pointer"></i>
+      <i
+        className="fa-solid fa-cart-shopping hover:text-yellow-600 text-yel text-lg float-right pb-10 px-6 mt-5 cursor-pointer"
+        onClick={() => AddToCartHandle(data.id)}
+      ></i>
     </CardStyling>
   );
 };

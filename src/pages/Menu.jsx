@@ -6,16 +6,14 @@ import Food from "../components/menu/Food";
 
 const Menu = () => {
   const contextConsumer = useContext(context);
-  const { products } = contextConsumer;
-
-  console.log(contextConsumer);
+  const { products, AddToCart } = contextConsumer;
 
   return (
     <>
       <Nav />
       <div className="flex justify-center items-center flex-wrap my-14">
         {products.map((e) => {
-          return <Food key={e.id} data={e} />;
+          return <Food key={e.id} data={e} AddToCart={AddToCart} />;
         })}
       </div>
     </>

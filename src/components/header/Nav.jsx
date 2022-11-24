@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
+import { context } from "../../context/context";
 
 const Nav = () => {
+  const contextConsumer = useContext(context);
+  const { cart } = contextConsumer;
+
   let [click, setClick] = useState(false);
 
   // --------------------- //
@@ -64,7 +68,9 @@ const Nav = () => {
         >
           Cart
           <i className="fa-solid fa-cart-shopping ml-2 text-yel"></i>
-          <div className="badge">6</div>
+          {cart.line_items.length > 0 && (
+            <div className="badge">{cart.line_items.length}</div>
+          )}
         </Link>
 
         <Link
