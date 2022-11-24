@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const Food = ({ data, AddToCart }) => {
+const Food = ({ data, AddToCart, setModal }) => {
+  // add to carf handling
+
   const AddToCartHandle = (id) => {
     AddToCart(id);
+    setModal(true);
+    setTimeout(() => {
+      setModal(false);
+    }, 1700);
   };
 
   return (

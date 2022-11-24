@@ -125,7 +125,9 @@ const Nav = () => {
             >
               Cart
               <i className="fa-solid fa-cart-shopping ml-2 text-yel"></i>
-              <div className="badge">6</div>
+              {cart.line_items && (
+                <div className="badge">{cart.line_items.length}</div>
+              )}
             </Link>
 
             <Link
@@ -159,8 +161,8 @@ export default Nav;
 
 const SmallScreenAnimation = keyframes`
  0% {
-    -webkit-transform: translateY(-25%);
-            transform: translateY(-25%);
+    -webkit-transform: translateY(-75%);
+            transform: translateY(-75%);
   }
   100% {
     -webkit-transform: translateY(0);

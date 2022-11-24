@@ -8,7 +8,7 @@ const FoodInCart = ({ data }) => {
   let { RemoveFood, UpdateCartQuantity } = contextConsumer;
 
   return (
-    <CardStyling className="max-w-sm w-[384px] rounded overflow-hidden shadow bg-card m-[25px]">
+    <CardStyling className="max-w-sm sm:w-[384px] w-[340px] rounded overflow-hidden shadow bg-card m-[5px] sm:m-[25px]">
       <img
         className="w-full h-[300px] object-cover"
         src={data.image.url}

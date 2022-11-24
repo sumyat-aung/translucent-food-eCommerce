@@ -58,7 +58,8 @@ export default Home;
 const LandingStyle = styled.div`
   h1,
   a,
-  p:first-child {
+  p:first-child,
+  span {
     font-family: "Cormorant Upright", serif;
   }
 

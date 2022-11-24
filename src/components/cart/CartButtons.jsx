@@ -4,9 +4,9 @@ import styled from "styled-components";
 
 const CartButtons = ({ EmptyCartHandle, cart }) => {
   return (
-    <ButtonStyling className="flex flex-col w-[80vw] items-end">
-      <div className="flex justify-around w-[100%] mt-20">
-        <h2 className="text-yel text-3xl tracking-widest">
+    <ButtonStyling className="flex flex-col lg:w-[80vw] items-end w-[100vw] px-5 sm:px-0">
+      <div className="flex justify-around w-[100%] mt-20 md:flex-row flex-col items-center">
+        <h2 className="text-yel text-lg sm:text-3xl tracking-widest">
           Still want to add more foods? Explore ⇀
           <Link
             to={"/menu"}
@@ -16,19 +16,19 @@ const CartButtons = ({ EmptyCartHandle, cart }) => {
           </Link>
         </h2>
         {cart.subtotal && (
-          <h1 className="text-3xl text-gray-50 font-mono">
+          <h1 className="text-3xl text-gray-50 font-mono mt-10 md:mt-0">
             Total - {cart.subtotal.formatted_with_symbol}
           </h1>
         )}
       </div>
       <div className="flex justify-around w-[100%] mt-20">
         <button
-          className="text-gray-50 text-2xl px-8 py-4 border-yel border rounded hover:bg-hover "
+          className="text-gray-50 text-lg sm:text-2xl px-5 py-4 border-yel border rounded hover:bg-hover sm:px-8"
           onClick={EmptyCartHandle}
         >
           Empty Cart
         </button>
-        <button className="text-gray-50 text-2xl px-8 py-4 border-yel border rounded hover:bg-hover ">
+        <button className="text-gray-50 text-lg sm:text-2xl px-5 py-4 border-yel border rounded hover:bg-hover sm:px-8">
           Checkout
         </button>
       </div>

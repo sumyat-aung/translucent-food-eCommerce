@@ -7,11 +7,11 @@ import logo from "../../assests/logo.png";
 const EmptyCart = () => {
   return (
     <EmptyCardStyling className="flex justify-center items-center flex-col h-[90vh]">
-      <h1 className="text-yel text-5xl">Your Cart Is Empty</h1>
-      <h3 className="text-3xl tracking-widest my-5">
-        Add your Favourite Foods To Cart
+      <h1 className="text-yel text-2xl sm:text-5xl">Your Cart Is Empty</h1>
+      <h3 className="text-lg tracking-widest my-5 sm:text-3xl">
+        Add Your Favourite Foods To Cart
       </h3>
-      <h2 className="text-yel text-3xl tracking-widest  mt-10">
+      <h2 className="text-yel text-xl sm:text-lg tracking-widest mt-10">
         Explore Menu ⇀
         <Link
           to={"/menu"}
