@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 
 import Nav from "../components/header/Nav";
-import EmptyCard from "../components/cart/EmptyCard";
+import EmptyCart from "../components/cart/EmptyCart";
 import FoodInCart from "../components/cart/FoodInCart";
 import { context } from "../context/context";
+import CartButtons from "../components/cart/CartButtons";
 
 const Cart = () => {
   const contextConsumer = useContext(context);
-  const { cart } = contextConsumer;
+  const { cart, EmptyCartHandle } = contextConsumer;
 
   let { line_items } = cart;
 
@@ -16,13 +17,16 @@ const Cart = () => {
       <Nav />
 
       {line_items && line_items.length <= 0 ? (
-        <EmptyCard />
+        <EmptyCart />
       ) : (
-        <div className="flex justify-center items-center flex-wrap my-14">
-          {line_items &&
-            line_items.map((e) => {
-              return <FoodInCart key={e.id} data={e} />;
-            })}
+        <div className="flex justify-center flex-col my-14 items-center">
+          <div className="flex justify-center items-center flex-wrap">
+            {line_items &&
+              line_items.map((e) => {
+                return <FoodInCart key={e.id} data={e} />;
+              })}
+            <CartButtons EmptyCartHandle={EmptyCartHandle} cart={cart} />
+          </div>
         </div>
       )}
     </>

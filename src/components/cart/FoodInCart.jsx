@@ -5,7 +5,7 @@ import { context } from "../../context/context";
 
 const FoodInCart = ({ data }) => {
   let contextConsumer = useContext(context);
-  let { RemoveFood } = contextConsumer;
+  let { RemoveFood, UpdateCartQuantity } = contextConsumer;
 
   return (
     <CardStyling className="max-w-sm w-[384px] rounded overflow-hidden shadow bg-card m-[25px]">
@@ -16,15 +16,23 @@ const FoodInCart = ({ data }) => {
       />
       <div className="px-6 py-4 flex justify-between">
         <h1 className="font-bold text-yel text-3xl">{data.name}</h1>
-        <h2 className=" text-gray-50">$ {data.price.raw * data.quantity}.00</h2>
+        <h2 className=" text-gray-50">
+          {data.line_total.formatted_with_symbol}
+        </h2>
       </div>
       <div className="flex justify-between w-full px-6 mb-5 items-center mt-4">
         <div className="flex items-center w-1/3 justify-between">
-          <button className="text-2xl text-gray-200  border-yel border rounded  w-[30px] h-[30px] flex justify-center items-center pb-1 hover:bg-hover">
+          <button
+            className="text-2xl text-gray-200  border-yel border rounded  w-[30px] h-[30px] flex justify-center items-center pb-1 hover:bg-hover"
+            onClick={() => UpdateCartQuantity(data.id, data.quantity - 1)}
+          >
             -
           </button>
           <h1 className="text-4xl text-yel pb-2">{data.quantity}</h1>
-          <button className="text-2xl text-gray-200  border-yel border rounded w-[30px] h-[30px] flex justify-center items-center pb-1 hover:bg-hover">
+          <button
+            className="text-2xl text-gray-200  border-yel border rounded w-[30px] h-[30px] flex justify-center items-center pb-1 hover:bg-hover"
+            onClick={() => UpdateCartQuantity(data.id, data.quantity + 1)}
+          >
             +
           </button>
         </div>

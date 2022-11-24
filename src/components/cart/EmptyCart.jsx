@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import logo from "../../assests/logo.png";
 
-const EmptyCard = () => {
+const EmptyCart = () => {
   return (
     <EmptyCardStyling className="flex justify-center items-center flex-col h-[90vh]">
       <h1 className="text-yel text-5xl">Your Cart Is Empty</h1>
@@ -25,7 +25,7 @@ const EmptyCard = () => {
   );
 };
 
-export default EmptyCard;
+export default EmptyCart;
 
 // --------------------- //
 

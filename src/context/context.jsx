@@ -11,6 +11,8 @@ const ContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
 
+  const [ProductsLoading, setProductsLoading] = useState(true);
+
   // all fetching func of useEff
   useEffect(() => {
     fetchFood();
@@ -21,6 +23,7 @@ const ContextProvider = (props) => {
   let fetchFood = async () => {
     let response = await commerce.products.list();
     setProducts(response.data);
+    setProductsLoading(false);
   };
 
   // fetch cart
@@ -36,8 +39,8 @@ const ContextProvider = (props) => {
   };
 
   // updateCartQuantity
-  let UpdateCartQuantity = async (id, quan) => {
-    let response = await commerce.cart.update(id, { quan });
+  let UpdateCartQuantity = async (id, quantity) => {
+    let response = await commerce.cart.update(id, { quantity });
     setCart(response);
   };
 
@@ -45,14 +48,27 @@ const ContextProvider = (props) => {
   let RemoveFood = async (id) => {
     let response = await commerce.cart.remove(id);
     setCart(response);
-    console.log(response);
+  };
+
+  // Empty Cart
+  let EmptyCartHandle = async () => {
+    let response = await commerce.cart.empty();
+    setCart(response);
   };
 
   // jsx
   return (
     <>
       <context.Provider
-        value={{ products, cart, AddToCart, UpdateCartQuantity, RemoveFood }}
+        value={{
+          products,
+          cart,
+          AddToCart,
+          UpdateCartQuantity,
+          RemoveFood,
+          EmptyCartHandle,
+          ProductsLoading,
+        }}
       >
         {props.children}
       </context.Provider>
