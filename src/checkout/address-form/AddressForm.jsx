@@ -1,7 +1,205 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { commerce } from "../../lib/commerce";
+import styled from "styled-components";
 
-const AddressForm = () => {
-  return <div className="h-[600px] border">AddressForm</div>;
+const AddressForm = ({ token }) => {
+  // Adress Form Data
+  const [AddressFormData, SetAddressFormData] = useState({
+    fname: "",
+    lname: "",
+    address: "",
+    email: "",
+    city: "",
+    postalCode: "",
+    country: "",
+    subdivisions: "",
+  });
+
+  // destruring address Form
+  const {
+    fname,
+    lname,
+    address,
+    email,
+    city,
+    postalCode,
+    country,
+    subdivisions,
+  } = AddressFormData;
+
+  // updating the state
+  const InputOnChangeHandle = (e) => {
+    SetAddressFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  // -------------------------------------------- //
+
+  // shipping countries & subdivisions State
+  const [ShippingCountries, setShippingCountries] = useState();
+  const [shippingSubdivision, setshippingSubdivision] = useState();
+
+  // fetching shipping countries nd setting the state - ( we got the token, when we enter the checkout)
+  const fetchShippingCountry = async (tokenId) => {
+    let res = await commerce.services.localeListShippingCountries();
+    setShippingCountries(res.countries);
+  };
+
+  // fetching subdivisions nd setting the state - ( we got the country code above in Adress Form )
+  const fetchshippingSubdivision = async (countryCode) => {
+    const res = await commerce.services.localeListSubdivisions(countryCode);
+    setshippingSubdivision(res.subdivisions);
+  };
+
+  // useEff for invoking all the above func
+  useEffect(() => {
+    fetchShippingCountry(token);
+  }, []);
+
+  useEffect(() => {
+    fetchshippingSubdivision(country);
+  }, [country]);
+
+  console.log(ShippingCountries, shippingSubdivision);
+
+  console.log(AddressFormData);
+
+  // -------------------------------------------- //
+
+  return (
+    <>
+      <div className="h-[600px] border ">
+        <InputsStyling className="m-5">
+          {/* --------------------- */}
+
+          <div className="w-full flex justify-between items-center border-none ">
+            <input
+              type="text"
+              className="w-[49%] font-mono  font-medium text-md py-3 px-5  bg-gray-200 focus:outline-none focus:bg-gray-300 rounded-lg"
+              placeholder="First Name"
+              name="fname"
+              value={fname}
+              onChange={InputOnChangeHandle}
+            />
+            <input
+              type="text"
+              className="w-[49%] font-mono font-medium text-md py-3 px-5  bg-gray-200 focus:outline-none focus:bg-gray-300 rounded-lg"
+              placeholder="Last Name"
+              name="lname"
+              value={lname}
+              onChange={InputOnChangeHandle}
+            />
+          </div>
+
+          {/* --------------------- */}
+
+          <input
+            type="text"
+            className="w-[100%] font-mono font-medium text-md py-3 px-5  bg-gray-200 focus:outline-none mt-5 focus:bg-gray-300 rounded-lg"
+            placeholder="Address"
+            name="address"
+            value={address}
+            onChange={InputOnChangeHandle}
+          />
+
+          {/* --------------------- */}
+
+          <input
+            type="email"
+            className="w-[100%] font-mono font-medium text-md py-3 px-5  bg-gray-200 focus:outline-none mt-5 focus:bg-gray-300 rounded-lg"
+            placeholder="Email"
+            name="email"
+            value={email}
+            onChange={InputOnChangeHandle}
+          />
+
+          {/* --------------------- */}
+
+          <div className="w-full flex justify-between items-center border-none mt-5">
+            <input
+              type="text"
+              className="w-[49%] font-mono font-medium text-md py-3 px-5  bg-gray-200 focus:outline-none focus:bg-gray-300 rounded-lg"
+              placeholder="City"
+              name="city"
+              value={city}
+              onChange={InputOnChangeHandle}
+            />
+            <input
+              type="number"
+              className="w-[49%] font-mono font-medium text-md py-3 px-5  bg-gray-200 focus:outline-none focus:bg-gray-300 rounded-lg"
+              placeholder="ZIP or Postal Code (783 83)"
+              name="postalCode"
+              value={postalCode}
+              onChange={InputOnChangeHandle}
+            />
+          </div>
+
+          {/* --------------------- */}
+
+          <div className="w-full flex justify-between items-center border-none mt-5">
+            <select
+              id="countries"
+              value={country}
+              className="w-[49%] font-mono font-medium text-md py-3 px-5  bg-gray-200 focus:outline-none focus:bg-gray-300 rounded-lg"
+              name="country"
+              onChange={InputOnChangeHandle}
+            >
+              <option value="" disabled hidden>
+                Choose Shipping Country
+              </option>
+
+              {ShippingCountries &&
+                Object.entries(ShippingCountries)
+                  .map(([code, name]) => ({ id: code, label: name }))
+                  .map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.label}
+                    </option>
+                  ))}
+            </select>
+
+            {/* --------------------- */}
+
+            <select
+              id="subdivisions"
+              value={subdivisions}
+              className="w-[49%] font-mono font-medium text-md py-3 px-5  bg-gray-200 focus:outline-none focus:bg-gray-300 rounded-lg"
+              name="subdivisions"
+              onChange={InputOnChangeHandle}
+            >
+              <option value="" disabled hidden>
+                Choose Region
+              </option>
+
+              {shippingSubdivision &&
+                Object.entries(shippingSubdivision)
+                  .map(([code, name]) => ({ id: code, label: name }))
+                  .map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.label}
+                    </option>
+                  ))}
+            </select>
+          </div>
+          {/* --------------------- */}
+        </InputsStyling>
+      </div>
+    </>
+  );
 };
 
 export default AddressForm;
+
+// --------------------- //
+
+// styled components
+
+const InputsStyling = styled.div`
+  input,
+  select {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+  }
+`;

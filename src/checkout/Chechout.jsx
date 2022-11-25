@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+
 import AddressForm from "./address-form/AddressForm";
-import "./checkout.css";
-import Complete from "./Complete/Complete";
 import PaymentForm from "./payment-form/PaymentForm";
-// import styled from "styled-components";
+import Complete from "./Complete/Complete";
+import "./checkout.css";
+import { context } from "../context/context";
 
 const Chechout = () => {
   const steps = ["Shipping Address", "Payment Details"];
   const [currentStep, setCurrentStep] = useState(1);
   const [complete, setComplete] = useState(false);
 
-  // Handle Next OR Finsih button
+  // context using
+  const contextConsumer = useContext(context);
+  const { token, generateTokenFunc, cart } = contextConsumer;
 
+  // generatating token
+  useEffect(() => {
+    generateTokenFunc();
+  }, [cart]);
+
+  // Handle Next OR Finsih button
   const NextBtnHandle = () => {
     currentStep === steps.length
       ? setComplete(true)
@@ -22,8 +31,8 @@ const Chechout = () => {
     <div className="flex justify-center items-center h-[100vh]">
       <div className="md:w-1/2 w-full rounded-sm shadow-md bg-gray-50">
         {/* -------------------------- */}
-
-        <div className="flex justify-center pt-20 pb-10">
+        <h1 className="font-mono text-5xl mb-5 mt-7 text-center">Checkout</h1>
+        <div className="flex justify-center pt-4 pb-10">
           {steps?.map((step, i) => (
             <div
               key={i}
@@ -45,7 +54,7 @@ const Chechout = () => {
 
         {/* -------------------------- */}
 
-        {currentStep === 1 && <AddressForm />}
+        {currentStep === 1 && <AddressForm token={token} />}
         {currentStep === 2 && !complete && <PaymentForm />}
         {complete && <Complete />}
 

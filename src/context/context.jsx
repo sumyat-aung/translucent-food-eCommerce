@@ -56,6 +56,15 @@ const ContextProvider = (props) => {
     setCart(response);
   };
 
+  // token state
+  const [Token, setToken] = useState(null);
+
+  // generate token func - that is going to invoke in checkout with useEff
+  const generateTokenFunc = async () => {
+    let res = await commerce.checkout.generateToken(cart.id, { type: "cart" });
+    setToken(res);
+  };
+
   // jsx
   return (
     <>
@@ -68,6 +77,8 @@ const ContextProvider = (props) => {
           RemoveFood,
           EmptyCartHandle,
           ProductsLoading,
+          Token,
+          generateTokenFunc,
         }}
       >
         {props.children}
