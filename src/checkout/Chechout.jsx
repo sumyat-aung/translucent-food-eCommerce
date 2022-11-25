@@ -15,10 +15,43 @@ const Chechout = () => {
   const contextConsumer = useContext(context);
   const { token, generateTokenFunc, cart } = contextConsumer;
 
-  // generatating token
-  useEffect(() => {
-    generateTokenFunc();
-  }, [cart]);
+  // Adress Form Data
+  const [AddressFormData, SetAddressFormData] = useState({
+    fname: "",
+    lname: "",
+    address: "",
+    email: "",
+    city: "",
+    postalCode: "",
+    country: "",
+    subdivisions: "",
+    shippingOption: "",
+  });
+
+  // destruring address Form
+  const {
+    fname,
+    lname,
+    address,
+    email,
+    city,
+    postalCode,
+    country,
+    subdivisions,
+    shippingOption,
+  } = AddressFormData;
+
+  // making sure all inputs are filled
+  let enableButton =
+    fname &&
+    lname &&
+    address &&
+    email &&
+    city &&
+    postalCode &&
+    country &&
+    subdivisions &&
+    shippingOption;
 
   // Handle Next OR Finsih button
   const NextBtnHandle = () => {
@@ -27,11 +60,18 @@ const Chechout = () => {
       : setCurrentStep((prev) => prev + 1);
   };
 
+  // generatating token
+  useEffect(() => {
+    generateTokenFunc();
+  }, [cart]);
+
+  // --------------------- //
+
   return (
     <div className="flex justify-center items-center h-[100vh]">
-      <div className="md:w-1/2 w-full rounded-sm shadow-md bg-gray-50">
+      <div className="md:w-1/2 w-full rounded-sm shadow-lg bg-gray-50">
         {/* -------------------------- */}
-        <h1 className="font-mono text-5xl mb-5 mt-7 text-center">Checkout</h1>
+        <h1 className="font-mono text-5xl mb-5 mt-10 text-center">Checkout</h1>
         <div className="flex justify-center pt-4 pb-10">
           {steps?.map((step, i) => (
             <div
@@ -54,8 +94,16 @@ const Chechout = () => {
 
         {/* -------------------------- */}
 
-        {currentStep === 1 && <AddressForm token={token} />}
-        {currentStep === 2 && !complete && <PaymentForm />}
+        {currentStep === 1 && (
+          <AddressForm
+            token={token}
+            AddressFormData={AddressFormData}
+            SetAddressFormData={SetAddressFormData}
+          />
+        )}
+        {currentStep === 2 && !complete && (
+          <PaymentForm AddressFormData={AddressFormData} />
+        )}
         {complete && <Complete />}
 
         {/* -------------------------- */}
@@ -63,8 +111,9 @@ const Chechout = () => {
         {!complete && (
           <div className="w-full flex justify-end items-center border pr-40 h-[100px]">
             <button
-              className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono"
+              className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono disabled:bg-blue-800 disabled:cursor-not-allowed "
               onClick={NextBtnHandle}
+              disabled={!enableButton}
             >
               {currentStep === steps.length ? "Finish" : "Next"}
             </button>
