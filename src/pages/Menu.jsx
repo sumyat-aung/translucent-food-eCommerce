@@ -7,6 +7,7 @@ import Nav from "../components/header/Nav";
 import { context } from "../context/context";
 import Food from "../components/menu/Food";
 import AddToCartAlert from "../components/alert/AddToCartAlert";
+import Admin from "../administrator/administrator";
 
 const Menu = () => {
   // getting data from context
@@ -51,6 +52,7 @@ const Menu = () => {
             />
           );
         })}
+        {!ProductsLoading && <Admin />}
       </div>
     </>
   );

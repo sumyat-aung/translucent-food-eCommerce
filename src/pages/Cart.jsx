@@ -5,6 +5,7 @@ import EmptyCart from "../components/cart/EmptyCart";
 import FoodInCart from "../components/cart/FoodInCart";
 import { context } from "../context/context";
 import CartButtons from "../components/cart/CartButtons";
+import Admin from "../administrator/administrator";
 
 const Cart = () => {
   // getting data from context
@@ -27,6 +28,9 @@ const Cart = () => {
                 return <FoodInCart key={e.id} data={e} />;
               })}
             <CartButtons EmptyCartHandle={EmptyCartHandle} cart={cart} />
+          </div>
+          <div className="mt-10 -mb-10">
+            <Admin />
           </div>
         </div>
       )}

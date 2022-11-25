@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Admin from "../administrator/administrator";
 
 import Nav from "../components/header/Nav";
 import data from "../components/review/review-data";
@@ -30,6 +31,10 @@ const Review = () => {
             </ReviewStyle>
           );
         })}
+      </div>
+
+      <div className="mb-5">
+        <Admin />
       </div>
     </div>
   );

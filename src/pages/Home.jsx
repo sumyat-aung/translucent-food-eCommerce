@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Nav from "../components/header/Nav";
 import spoon from "../assests/spoon.svg";
 import food from "../assests/food.png";
+import Admin from "../administrator/administrator";
 
 const Home = () => {
   return (
@@ -45,6 +46,7 @@ const Home = () => {
           />
         </div>
       </LandingStyle>
+      <Admin />
     </div>
   );
 };

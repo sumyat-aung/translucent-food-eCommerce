@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Nav from "../components/header/Nav";
 import spoon from "../assests/spoon.svg";
 import drink from "../assests/drink.png";
+import Admin from "../administrator/administrator";
 
 const ContactUs = () => {
   return (
@@ -33,6 +34,7 @@ const ContactUs = () => {
           <img src={drink} alt="drink" className="w-[350px]" />
         </div>
       </ContactStyling>
+      <Admin />
     </div>
   );
 };
