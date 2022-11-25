@@ -28,9 +28,12 @@ const CartButtons = ({ EmptyCartHandle, cart }) => {
         >
           Empty Cart
         </button>
-        <button className="text-gray-50 text-lg sm:text-2xl px-5 py-4 border-yel border rounded hover:bg-hover sm:px-8">
+        <Link
+          className="text-gray-50 text-lg sm:text-2xl px-5 py-4 border-yel border rounded hover:bg-hover sm:px-8"
+          to={"/checkout"}
+        >
           Checkout
-        </button>
+        </Link>
       </div>
     </ButtonStyling>
   );
