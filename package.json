@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@chec/commerce.js": "^2.8.0",
-    "@splidejs/react-splide": "^0.7.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",

@@ -54,7 +54,7 @@ const Chechout = () => {
         {!complete && (
           <div className="w-full flex justify-end items-center border pr-40 h-[100px]">
             <button
-              className="px-12 py-2 text-gray-50 bg-gray-800 hover:bg-gray-600  text-xl border border-yel rounded-md"
+              className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono"
               onClick={NextBtnHandle}
             >
               {currentStep === steps.length ? "Finish" : "Next"}

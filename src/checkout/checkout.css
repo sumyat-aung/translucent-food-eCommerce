@@ -11,14 +11,15 @@
 }
 
 .active .step {
-  @apply bg-gray-500;
+  @apply bg-blue-900;
 }
 
 .complete .step {
-  @apply bg-green-600;
+  @apply  bg-blue-900;
 }
 
 .complete:not(:first-child):before,
 .active:not(:first-child):before {
-  @apply bg-green-600;
+  @apply  bg-blue-900;
+  ;
 }
