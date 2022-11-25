@@ -7,19 +7,15 @@
 }
 
 .step {
-  @apply w-10 h-10 flex items-center justify-center z-10 relative bg-yellow-600 rounded-full font-semibold text-white;
+  @apply w-10 h-10 flex items-center justify-center z-10 relative bg-gray-500 rounded-full font-semibold text-white;
 }
 
 .active .step {
-  @apply bg-yellow-600;
+  @apply bg-gray-500;
 }
 
 .complete .step {
   @apply bg-green-600;
-}
-
-.complete p {
-  @apply text-white;
 }
 
 .complete:not(:first-child):before,
