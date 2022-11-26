@@ -1,0 +1,4 @@
+let REACT_APP_STRIPE_KEY =
+  "pk_test_51M8MxcFL7DjtBiQThZaWoLsWESgyk3rvO0bzhH77CZ7rdsvW8rx6RCVhAVDfcLnZcCgJIAVdyTXrG9goSr2VJYGc00mcYHOcdm";
+
+export default REACT_APP_STRIPE_KEY;

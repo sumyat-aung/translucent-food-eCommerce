@@ -13,7 +13,8 @@ const Chechout = () => {
 
   // context using
   const contextConsumer = useContext(context);
-  const { Token, generateTokenFunc, cart } = contextConsumer;
+  const { Token, generateTokenFunc, cart, refreshCart } =
+    contextConsumer;
 
   // Adress Form Data
   const [AddressFormData, SetAddressFormData] = useState({
@@ -55,9 +56,7 @@ const Chechout = () => {
 
   // Handle Next OR Finsih button
   const NextBtnHandle = () => {
-    currentStep === steps.length
-      ? setComplete(true)
-      : setCurrentStep((prev) => prev + 1);
+    setCurrentStep((prev) => prev + 1);
   };
 
   // generatating token
@@ -104,20 +103,26 @@ const Chechout = () => {
           />
         )}
         {currentStep === 2 && !complete && (
-          <PaymentForm AddressFormData={AddressFormData} Token={Token} />
+          <PaymentForm
+            AddressFormData={AddressFormData}
+            Token={Token}
+            complete={complete}
+            setComplete={setComplete}
+           
+          />
         )}
         {complete && <Complete />}
 
         {/* -------------------------- */}
 
-        {!complete && (
+        {!complete && currentStep !== steps.length && (
           <div className="w-full flex justify-end items-center pr-[50px] h-[100px]">
             <button
               className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono disabled:bg-blue-800 disabled:cursor-not-allowed "
               onClick={NextBtnHandle}
               disabled={!enableButton}
             >
-              {currentStep === steps.length ? "Finish" : "Next"}
+              Next
             </button>
           </div>
         )}
