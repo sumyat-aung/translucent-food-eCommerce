@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
 
 import { commerce } from "../lib/commerce";
 
@@ -60,25 +59,11 @@ const ContextProvider = (props) => {
   // token state
   const [Token, setToken] = useState();
 
-  // generate token func - that is going to invoke in checkout with useEff
-  const generateTokenFunc = async () => {
-    try {
-      let res = await commerce.checkout.generateToken(cart.id, {
-        type: "cart",
-      });
-      setToken(res);
-    } catch (error) {
-      <Navigate to={"/"} />;
-    }
-  };
-
   // refresh cart
   const refreshCart = async () => {
     const newCart = await commerce.cart.refresh();
     setCart(newCart);
   };
-
-  // Order
 
   // jsx
   return (
@@ -93,7 +78,7 @@ const ContextProvider = (props) => {
           EmptyCartHandle,
           ProductsLoading,
           Token,
-          generateTokenFunc,
+          setToken,
           refreshCart,
         }}
       >

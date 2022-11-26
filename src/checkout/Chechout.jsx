@@ -1,19 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
+import { context } from "../context/context";
+import { useNavigate } from "react-router-dom";
 
 import AddressForm from "./address-form/AddressForm";
 import PaymentForm from "./payment-form/PaymentForm";
 import Complete from "./Complete/Complete";
+import { commerce } from "../lib/commerce";
 import "./checkout.css";
-import { context } from "../context/context";
 
 const Chechout = () => {
+  // context using
+  const contextConsumer = useContext(context);
+  const { Token, cart, refreshCart, setToken } = contextConsumer;
+
   const steps = ["Shipping Address", "Payment Details"];
   const [currentStep, setCurrentStep] = useState(1);
   const [complete, setComplete] = useState(false);
 
-  // context using
-  const contextConsumer = useContext(context);
-  const { Token, generateTokenFunc, cart, refreshCart } = contextConsumer;
+  // useNavigate
+  let navigate = useNavigate();
 
   // Adress Form Data
   const [AddressFormData, SetAddressFormData] = useState({
@@ -56,6 +61,18 @@ const Chechout = () => {
   // Handle Next OR Finsih button
   const NextBtnHandle = () => {
     setCurrentStep((prev) => prev + 1);
+  };
+
+  // generate token func - that is going to invoke with useEff
+  const generateTokenFunc = async () => {
+    try {
+      let res = await commerce.checkout.generateToken(cart.id, {
+        type: "cart",
+      });
+      setToken(res);
+    } catch (error) {
+      if (currentStep !== steps.length) navigate("/");
+    }
   };
 
   // generatating token
