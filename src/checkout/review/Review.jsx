@@ -35,7 +35,7 @@ const Review = ({ Token }) => {
             </li>
           </ul>
         ))}
-        <h1 className="text-xl font-bold leading-none text-gray-900 mt-5 flex justify-end">
+        <h1 className="text-xl font-bold leading-none text-gray-900 my-5 flex justify-end">
           Total price : {Token.total.formatted_with_symbol}
         </h1>
       </div>

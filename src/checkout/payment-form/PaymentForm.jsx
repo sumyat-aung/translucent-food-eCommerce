@@ -1,19 +1,16 @@
 import React from "react";
-// import {
-//   Elements,
-//   CardElement,
-//   ElementsConsumer,
-// } from "@stripe/react-stripe-js";
-// import { loadStripe } from "@stripe/stripe-js";
+import {
+  Elements,
+  CardElement,
+  ElementsConsumer,
+} from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 import Review from "../review/Review";
 
 const PaymentForm = ({ AddressFormData, Token }) => {
-  // console.log(Token);
-  // console.log(AddressFormData);
-
   return (
-    <div>
+    <div className="px-5">
       <Review Token={Token} />
     </div>
   );
