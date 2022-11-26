@@ -1,4 +1,10 @@
 import React from "react";
+// import {
+//   Elements,
+//   CardElement,
+//   ElementsConsumer,
+// } from "@stripe/react-stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
 
 const PaymentForm = ({ AddressFormData }) => {
   console.log(AddressFormData);

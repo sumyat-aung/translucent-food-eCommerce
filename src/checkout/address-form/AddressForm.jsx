@@ -75,7 +75,7 @@ const AddressForm = ({ token, AddressFormData, SetAddressFormData }) => {
 
   return (
     <>
-      <div className="border py-10">
+      <div>
         <InputsStyling className="m-5">
           {/* --------------------- */}
 

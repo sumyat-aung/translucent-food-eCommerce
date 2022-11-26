@@ -68,7 +68,7 @@ const Chechout = () => {
   // --------------------- //
 
   return (
-    <div className="flex justify-center items-center h-[100vh]">
+    <div className="flex justify-center items-center py-10">
       <div className="md:w-1/2 w-full rounded-sm shadow-lg bg-gray-50">
         {/* -------------------------- */}
         <h1 className="font-mono text-5xl mb-5 mt-10 text-center">Checkout</h1>
