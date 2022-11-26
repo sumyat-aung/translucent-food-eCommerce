@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { commerce } from "../../lib/commerce";
 import styled from "styled-components";
 
-const AddressForm = ({ token, AddressFormData, SetAddressFormData }) => {
+const AddressForm = ({ Token, AddressFormData, SetAddressFormData }) => {
   // destruring address Form
   const {
     fname,
@@ -60,7 +60,7 @@ const AddressForm = ({ token, AddressFormData, SetAddressFormData }) => {
 
   // useEff for invoking all the above func
   useEffect(() => {
-    fetchShippingCountry(token);
+    fetchShippingCountry(Token);
   }, []);
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const AddressForm = ({ token, AddressFormData, SetAddressFormData }) => {
   }, [country]);
 
   useEffect(() => {
-    if (shippingSubdivision) fetchShippingOptions(token, country, subdivisions);
+    if (shippingSubdivision) fetchShippingOptions(Token, country, subdivisions);
   }, [shippingSubdivision]);
 
   // -------------------------------------------- //

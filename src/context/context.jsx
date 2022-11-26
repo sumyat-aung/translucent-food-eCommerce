@@ -57,7 +57,7 @@ const ContextProvider = (props) => {
   };
 
   // token state
-  const [Token, setToken] = useState(null);
+  const [Token, setToken] = useState();
 
   // generate token func - that is going to invoke in checkout with useEff
   const generateTokenFunc = async () => {

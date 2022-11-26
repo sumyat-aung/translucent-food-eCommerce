@@ -6,10 +6,17 @@ import React from "react";
 // } from "@stripe/react-stripe-js";
 // import { loadStripe } from "@stripe/stripe-js";
 
-const PaymentForm = ({ AddressFormData }) => {
-  console.log(AddressFormData);
+import Review from "../review/Review";
 
-  return <div className="h-[600px] border">PaymentForm</div>;
+const PaymentForm = ({ AddressFormData, Token }) => {
+  // console.log(Token);
+  // console.log(AddressFormData);
+
+  return (
+    <div>
+      <Review Token={Token} />
+    </div>
+  );
 };
 
 export default PaymentForm;

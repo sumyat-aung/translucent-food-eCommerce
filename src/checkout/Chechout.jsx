@@ -13,7 +13,7 @@ const Chechout = () => {
 
   // context using
   const contextConsumer = useContext(context);
-  const { token, generateTokenFunc, cart } = contextConsumer;
+  const { Token, generateTokenFunc, cart } = contextConsumer;
 
   // Adress Form Data
   const [AddressFormData, SetAddressFormData] = useState({
@@ -62,7 +62,9 @@ const Chechout = () => {
 
   // generatating token
   useEffect(() => {
-    generateTokenFunc();
+    if (cart.id) {
+      generateTokenFunc();
+    }
   }, [cart]);
 
   // --------------------- //
@@ -96,20 +98,20 @@ const Chechout = () => {
 
         {currentStep === 1 && (
           <AddressForm
-            token={token}
+            Token={Token}
             AddressFormData={AddressFormData}
             SetAddressFormData={SetAddressFormData}
           />
         )}
         {currentStep === 2 && !complete && (
-          <PaymentForm AddressFormData={AddressFormData} />
+          <PaymentForm AddressFormData={AddressFormData} Token={Token} />
         )}
         {complete && <Complete />}
 
         {/* -------------------------- */}
 
         {!complete && (
-          <div className="w-full flex justify-end items-center border pr-40 h-[100px]">
+          <div className="w-full flex justify-end items-center pr-[50px] h-[100px]">
             <button
               className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono disabled:bg-blue-800 disabled:cursor-not-allowed "
               onClick={NextBtnHandle}
