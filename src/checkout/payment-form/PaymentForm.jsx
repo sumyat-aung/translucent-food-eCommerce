@@ -9,7 +9,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import Review from "../review/Review";
 import REACT_APP_STRIPE_KEY from "../../../key/stripe_key";
 
-const PaymentForm = ({ AddressFormData, Token, setComplete }) => {
+const PaymentForm = ({ AddressFormData, Token, setComplete, refreshCart }) => {
   let stripePromise = loadStripe(REACT_APP_STRIPE_KEY);
 
   let payButtonHandle = async (event, elements, stripe) => {
@@ -52,6 +52,7 @@ const PaymentForm = ({ AddressFormData, Token, setComplete }) => {
       };
 
       // (Token.id, orderData) this 2 information have to passed into a function that made payments
+      refreshCart();
       setComplete(true);
     }
   };

@@ -13,8 +13,7 @@ const Chechout = () => {
 
   // context using
   const contextConsumer = useContext(context);
-  const { Token, generateTokenFunc, cart, refreshCart } =
-    contextConsumer;
+  const { Token, generateTokenFunc, cart, refreshCart } = contextConsumer;
 
   // Adress Form Data
   const [AddressFormData, SetAddressFormData] = useState({
@@ -108,7 +107,7 @@ const Chechout = () => {
             Token={Token}
             complete={complete}
             setComplete={setComplete}
-           
+            refreshCart={refreshCart}
           />
         )}
         {complete && <Complete />}
