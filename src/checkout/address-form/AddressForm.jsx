@@ -94,6 +94,7 @@ const AddressForm = ({ Token, AddressFormData, SetAddressFormData }) => {
               placeholder="Last Name"
               name="lname"
               value={lname}
+              /* A function that is called when the input is changed. */
               onChange={InputOnChangeHandle}
             />
           </div>
@@ -230,7 +231,7 @@ export default AddressForm;
 const InputsStyling = styled.div`
   input,
   select {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 500;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 800;
   }
 `;

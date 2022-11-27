@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { context } from "../context/context";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import AddressForm from "./address-form/AddressForm";
 import PaymentForm from "./payment-form/PaymentForm";
@@ -132,7 +132,13 @@ const Chechout = () => {
         {/* -------------------------- */}
 
         {!complete && currentStep !== steps.length && (
-          <div className="w-full flex justify-end items-center pr-[50px] h-[100px]">
+          <div className="w-full flex justify-between items-center pr-[50px] h-[100px]">
+            <Link
+              to={"/cart"}
+              className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono "
+            >
+              Go Back To Cart
+            </Link>
             <button
               className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono disabled:bg-blue-800 disabled:cursor-not-allowed "
               onClick={NextBtnHandle}
