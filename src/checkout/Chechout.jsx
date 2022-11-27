@@ -132,7 +132,7 @@ const Chechout = () => {
         {/* -------------------------- */}
 
         {!complete && currentStep !== steps.length && (
-          <div className="w-full flex justify-between items-center pr-[50px] h-[100px]">
+          <div className="w-full flex justify-between items-center px-5 h-[100px]">
             <Link
               to={"/cart"}
               className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono "

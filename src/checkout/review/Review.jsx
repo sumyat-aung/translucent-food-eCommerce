@@ -15,7 +15,7 @@ const Review = ({ Token }) => {
               <div className="flex items-center space-x-4">
                 <div className="flex-shrink-0">
                   <img
-                    className="w-8 h-8 rounded-full"
+                    className="w-12 h-12 rounded-full"
                     src={d.image.url}
                     alt={d.name}
                   />
