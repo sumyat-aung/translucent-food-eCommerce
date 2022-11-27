@@ -135,7 +135,7 @@ const Chechout = () => {
           <div className="w-full md:flex-row flex-col-reverse flex md:justify-between justify-center items-center px-5 md:h-[100px] h-[150px]">
             <Link
               to={"/cart"}
-              className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono md:mb-0 mb-5"
+              className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono md:mt-0 mt-5"
             >
               Go Back To Cart
             </Link>
