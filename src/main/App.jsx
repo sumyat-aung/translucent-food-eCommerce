@@ -8,6 +8,8 @@ import ContactUs from "../pages/Contact-us";
 import Cart from "../pages/Cart";
 import Chechout from "../checkout/Chechout";
 
+import PageNotFound from "../components/404/404";
+
 const App = () => {
   return (
     <>
@@ -18,6 +20,7 @@ const App = () => {
         <Route path="/review" element={<Review />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/checkout" element={<Chechout />} />
+        <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </>
   );
