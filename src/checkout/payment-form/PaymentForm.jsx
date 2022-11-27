@@ -69,7 +69,7 @@ const PaymentForm = ({ AddressFormData, Token, setComplete, refreshCart }) => {
           <ElementsConsumer>
             {({ elements, stripe }) => (
               <form>
-                <CardElement />
+                <CardElement className="py-4 px-5 border font-mono" />
                 <br /> <br />
                 <div className="w-full flex justify-end items-center pr-[50px] h-[100px]">
                   <button
