@@ -5,3 +5,5 @@ Package / Library that has been install
 - styled-components
 - React router dom
 - react-spinners
+- stripe
+- framer-motion
