@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import Nav from "../components/header/Nav";
 import { context } from "../context/context";
@@ -41,7 +42,14 @@ const Menu = () => {
         </TextStyling>
       )}
 
-      <div className="flex justify-center items-center flex-wrap my-14">
+      <motion.div
+        initial={{ y: 400 }}
+        animate={{ y: 0 }}
+        transition={{
+          type: "spring",
+        }}
+        className="flex justify-center items-center flex-wrap my-14"
+      >
         {products.map((e) => {
           return (
             <Food
@@ -53,7 +61,7 @@ const Menu = () => {
           );
         })}
         {!ProductsLoading && <Admin />}
-      </div>
+      </motion.div>
     </>
   );
 };
