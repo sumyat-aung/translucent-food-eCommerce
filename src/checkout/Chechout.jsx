@@ -90,7 +90,7 @@ const Chechout = () => {
   // --------------------- //
 
   return (
-    <div className="flex justify-center items-center py-10 xl:h-[100vh]">
+    <div className="flex justify-center items-center py-10 ">
       <div className="xl:w-1/2 lg:w-2/3 w-full rounded-sm shadow-lg bg-gray-50">
         {/* -------------------------- */}
         <h1 className="font-mono text-5xl mb-5 mt-10 text-center">Checkout</h1>
