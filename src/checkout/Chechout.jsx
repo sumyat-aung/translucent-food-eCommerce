@@ -63,6 +63,11 @@ const Chechout = () => {
     setCurrentStep((prev) => prev + 1);
   };
 
+  // Handle Back button
+  const BackBtnHandle = () => {
+    setCurrentStep((prev) => prev - 1);
+  };
+
   // generate token func - that is going to invoke with useEff
   const generateTokenFunc = async () => {
     try {
@@ -125,6 +130,7 @@ const Chechout = () => {
             complete={complete}
             setComplete={setComplete}
             refreshCart={refreshCart}
+            BackBtnHandle={BackBtnHandle}
           />
         )}
         {complete && <Complete />}

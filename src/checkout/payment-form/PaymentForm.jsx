@@ -9,7 +9,13 @@ import { loadStripe } from "@stripe/stripe-js";
 import Review from "../review/Review";
 import REACT_APP_STRIPE_KEY from "../../../key/stripe_key";
 
-const PaymentForm = ({ AddressFormData, Token, setComplete, refreshCart }) => {
+const PaymentForm = ({
+  AddressFormData,
+  Token,
+  setComplete,
+  refreshCart,
+  BackBtnHandle,
+}) => {
   let stripePromise = loadStripe(REACT_APP_STRIPE_KEY);
 
   let payButtonHandle = async (event, elements, stripe) => {
@@ -71,11 +77,17 @@ const PaymentForm = ({ AddressFormData, Token, setComplete, refreshCart }) => {
               <form>
                 <CardElement className="py-4 px-5 border font-mono" />
                 <br /> <br />
-                <div className="w-full flex justify-end items-center pr-[50px] h-[100px]">
+                <div className="w-full md:flex-row flex-col-reverse flex md:justify-between justify-center items-center px-5 md:h-[100px] h-[150px] md:m-0 -mt-10">
+                  <button
+                    className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono disabled:bg-blue-800 disabled:cursor-not-allowed "
+                    onClick={BackBtnHandle}
+                  >
+                    Back
+                  </button>
                   <button
                     type="submit"
                     disabled={!stripe}
-                    className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono disabled:bg-blue-800 disabled:cursor-not-allowed "
+                    className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono disabled:bg-blue-800 disabled:cursor-not-allowed md:mb-10 mb-5"
                     onClick={(e) => payButtonHandle(e, elements, stripe)}
                   >
                     Pay {Token.subtotal.formatted_with_symbol}
