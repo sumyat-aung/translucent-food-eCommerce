@@ -87,7 +87,7 @@ const PaymentForm = ({
                   <button
                     type="submit"
                     disabled={!stripe}
-                    className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono disabled:bg-blue-800 disabled:cursor-not-allowed md:mb-10 mb-5"
+                    className="px-12 py-2 text-gray-50 bg-blue-900 hover:bg-blue-800  text-xl border border-yel rounded-md font-mono disabled:bg-blue-800 disabled:cursor-not-allowed md:mb-0 mb-5"
                     onClick={(e) => payButtonHandle(e, elements, stripe)}
                   >
                     Pay {Token.subtotal.formatted_with_symbol}
