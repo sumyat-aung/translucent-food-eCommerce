@@ -94,14 +94,14 @@ const Nav = () => {
 
       <div className=" lg:hidden flex">
         <i
-          className="fa-solid fa-bars-staggered text-xl cursor-pointer"
+          className="fa-solid fa-bars-staggered text-xl cursor-default lg:cursor-pointer"
           onClick={() => setClick(true)}
         ></i>
 
         {click && (
           <div className="fixed top-0 left-0 w-[100vw] h-[100vh] flex flex-col justify-center items-center bg-bla small-screen ">
             <i
-              className="fa-solid fa-xmark text-xl absolute top-6 right-11 cursor-pointer"
+              className="fa-solid fa-xmark text-xl absolute top-6 right-11 cursor-default lg:cursor-pointer"
               onClick={() => setClick(false)}
             ></i>
             <Link
