@@ -27,7 +27,7 @@ const Food = ({ data, AddToCart, setModal }) => {
         dangerouslySetInnerHTML={{ __html: data.description }}
       ></p>
       <i
-        className="fa-solid fa-cart-shopping hover:text-yellow-600 text-yel text-lg float-right pb-10 px-6 mt-5 cursor-pointer"
+        className="fa-solid fa-cart-shopping hover:text-yellow-600 text-yel text-lg float-right pb-10 px-6 mt-5 lg:cursor-pointer cursor-default"
         onClick={() => AddToCartHandle(data.id)}
       ></i>
     </CardStyling>

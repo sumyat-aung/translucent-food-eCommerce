@@ -8,14 +8,12 @@
   box-sizing: border-box;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   overflow-x: hidden;
-}
-
-@media (hover: none) {
-  * {
-    cursor: default;
-  }
 }
 
 body::-webkit-scrollbar {
@@ -28,6 +26,8 @@ body::-webkit-scrollbar {
   border-radius: 60px;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: default;
+  }
+}
