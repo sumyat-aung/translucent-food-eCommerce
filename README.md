@@ -71,9 +71,9 @@
  > **Include the ability to be responsive to all screen sizes.** <br>
  > **Having a user-friendly interface.** <br>
  > **Providing a secure checkout process.** <br>
- > **Provided customer reviews page**  <br>
+ > **Provided customer reviews page.**  <br>
  > **Cart data advanced management with secure API.** <br>
- > **Used React Context to stop props drilling and increase web performance**
+ > **Used React Context to stop props drilling and increase web performance.**
  
 <br />
 <br />
