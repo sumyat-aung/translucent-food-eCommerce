@@ -24,21 +24,21 @@ const FoodInCart = ({ data }) => {
       <div className="flex justify-between w-full px-6 mb-5 items-center mt-4">
         <div className="flex items-center w-1/3 justify-between">
           <button
-            className="text-2xl text-gray-200  border-yel border rounded  w-[30px] h-[30px] flex justify-center items-center pb-1 hover:bg-hover"
+            className="text-2xl text-gray-200  border-yel border rounded  w-[30px] h-[30px] flex justify-center items-center pb-1 hover:bg-hover cursor-default lg:cursor-pointer"
             onClick={() => UpdateCartQuantity(data.id, data.quantity - 1)}
           >
             -
           </button>
           <h1 className="text-4xl text-yel pb-2">{data.quantity}</h1>
           <button
-            className="text-2xl text-gray-200  border-yel border rounded w-[30px] h-[30px] flex justify-center items-center pb-1 hover:bg-hover"
+            className="text-2xl text-gray-200  border-yel border rounded w-[30px] h-[30px] flex justify-center items-center pb-1 hover:bg-hover cursor-default lg:cursor-pointer"
             onClick={() => UpdateCartQuantity(data.id, data.quantity + 1)}
           >
             +
           </button>
         </div>
         <button
-          className="text-gray-50 text-md px-5 py-2 border-yel border rounded hover:bg-hover"
+          className="text-gray-50 text-md px-5 py-2 border-yel border rounded hover:bg-hover cursor-default lg:cursor-pointer"
           onClick={() => RemoveFood(data.id)}
         >
           Remove From Cart

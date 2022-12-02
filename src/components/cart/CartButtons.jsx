@@ -23,7 +23,7 @@ const CartButtons = ({ EmptyCartHandle, cart }) => {
       </div>
       <div className="flex justify-around w-[100%] mt-20">
         <button
-          className="text-gray-50 text-lg sm:text-2xl px-5 py-4 border-yel border rounded hover:bg-hover sm:px-8"
+          className="text-gray-50 text-lg sm:text-2xl px-5 py-4 border-yel border rounded hover:bg-hover sm:px-8 cursor-default lg:cursor-pointer"
           onClick={EmptyCartHandle}
         >
           Empty Cart
