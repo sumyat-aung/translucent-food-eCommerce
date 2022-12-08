@@ -8,6 +8,8 @@
   The first iteration of <a href="https://trlc.netlify.app/" target="_blank"> Translucent eCommerce Website </a> built with <a href="https://reactjs.org/" target="_blank"> React </a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
 </p>
 <br />
+
+### Click to <a href="https://vbra.netlify.app/" target="_blank"> Visit </a>
 <br />
  <a href="https://trlc.netlify.app/" target="_blank">
     <img src="./notes/overview.png" alt="Netlify Status" />
