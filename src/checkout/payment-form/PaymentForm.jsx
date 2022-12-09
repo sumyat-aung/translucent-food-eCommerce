@@ -55,7 +55,6 @@ const PaymentForm = ({
         },
       };
 
-      console.log(orderData);
       // (Token.id, orderData) this 2 information have to passed into a function that made payments
       refreshCart();
       setComplete(true);
