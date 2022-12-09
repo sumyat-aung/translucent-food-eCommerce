@@ -53,26 +53,24 @@ const Chechout = () => {
 
   // generate token func - that is going to invoke with useEff
   const generateTokenFunc = async () => {
-    try {
-      let res = await commerce.checkout.generateToken(cart.id, {
-        type: "cart",
-      });
-      setToken(res);
-    } catch (error) {
+    let res = await commerce.checkout.generateToken(cart.id, {
+      type: "cart",
+    });
+    setToken(res);
+  };
+
+  // generatating token
+  useEffect(() => {
+    if (cart && cart.line_items && cart.line_items.length > 0) {
+      generateTokenFunc();
+    } else {
       if (currentStep !== steps.length) {
         navigate("/");
       } else {
         return;
       }
     }
-  };
-
-  // generatating token
-  useEffect(() => {
-    if (cart.id) {
-      generateTokenFunc();
-    }
-  }, []);
+  }, [cart]);
 
   // --------------------- //
 
