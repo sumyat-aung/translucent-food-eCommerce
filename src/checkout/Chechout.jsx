@@ -72,7 +72,7 @@ const Chechout = () => {
     if (cart.id) {
       generateTokenFunc();
     }
-  }, [cart]);
+  }, []);
 
   // --------------------- //
 
