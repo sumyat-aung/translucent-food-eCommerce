@@ -34,29 +34,12 @@ const Chechout = () => {
   });
 
   // destruring address Form
-  const {
-    fname,
-    lname,
-    address,
-    email,
-    city,
-    postalCode,
-    country,
-    subdivisions,
-    shippingOption,
-  } = AddressFormData;
+  const { fname, lname, address, email, city, postalCode, country } =
+    AddressFormData;
 
   // making sure all inputs are filled
   let enableButton =
-    fname &&
-    lname &&
-    address &&
-    email &&
-    city &&
-    postalCode &&
-    country &&
-    subdivisions &&
-    shippingOption;
+    fname && lname && address && email && city && postalCode && country;
 
   // Handle Next OR Finsih button
   const NextBtnHandle = () => {
@@ -76,7 +59,11 @@ const Chechout = () => {
       });
       setToken(res);
     } catch (error) {
-      if (currentStep !== steps.length) navigate("/");
+      if (currentStep !== steps.length) {
+        navigate("/");
+      } else {
+        return;
+      }
     }
   };
 

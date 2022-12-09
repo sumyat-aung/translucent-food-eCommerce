@@ -44,11 +44,9 @@ const PaymentForm = ({
           name: "Domestic",
           street: AddressFormData.address,
           town_city: AddressFormData.city,
-          county_state: AddressFormData.subdivisions,
           postal_zip_code: AddressFormData.postalCode,
           country: AddressFormData.country,
         },
-        fulfillment: { shipping_method: AddressFormData.shippingOption },
         payment: {
           gateway: "stripe",
           stripe: {
@@ -57,6 +55,7 @@ const PaymentForm = ({
         },
       };
 
+      console.log(orderData);
       // (Token.id, orderData) this 2 information have to passed into a function that made payments
       refreshCart();
       setComplete(true);
