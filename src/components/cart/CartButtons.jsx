@@ -57,5 +57,6 @@ let ButtonStyling = styled.div`
   
   a {
     font-family: "Cormorant Upright", serif;
+    letter-spacing: 2px;
   }
 `;
