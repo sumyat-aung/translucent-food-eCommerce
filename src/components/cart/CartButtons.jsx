@@ -54,4 +54,8 @@ let ButtonStyling = styled.div`
   h2 {
     font-family: "Cormorant Upright", serif;
   }
+  
+  a {
+    font-family: "Cormorant Upright", serif;
+  }
 `;
